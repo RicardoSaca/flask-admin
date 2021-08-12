@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
@@ -28,7 +28,7 @@ admin.add_view(ModelView(Book, db.session))
 
 @app.route('/')
 def index():
-    return "Hello"
+    return render_template('index.html')
 
 
 if __name__ == '__main__':
