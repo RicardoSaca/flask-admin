@@ -22,7 +22,7 @@ class Book(db.Model):
     author = db.Column(db.String(30))
     date_finished = db.Column(db.DateTime)
 
-db.init_app()
+db.init_app(app)
 
 admin.add_view(ModelView(Book, db.session))
 
