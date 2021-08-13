@@ -33,6 +33,12 @@ admin.add_view(ModelView(Book, db.session))
 def index():
     return render_template('index.html')
 
+@app.route('/books')
+def books():
+    books = db.Query("SELECT * FROM books")
+    for book in books:
+        print(f'{book}')
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
