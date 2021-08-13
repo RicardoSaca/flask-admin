@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+
+{% block content %}
+{% if books %}
+<ul>
+    {% for book in books %}
+        <li>{{ book.name }}, {{ book.author }} - {{ book.date_finished.strftime('%Y') }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

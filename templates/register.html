@@ -1,0 +1,30 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+<form action="{{ url_for('test') }}" method=post>
+    <div>
+        {{ form.hidden_tag() }}
+        <!-- name form -->
+        <p>
+            {{ form.name.label }} <br>
+            {{ form.name(placeholder='Username')}}
+        </p>
+        <!-- email form -->
+        <p>
+            {{ form.password.label }} <br>
+            {{ form.password(placeholder='Password')}}
+        </p>
+        <!-- Content of your request -->
+        <p>
+            {{ form.confirm.label }} <br>
+            {{ form.confirm(placeholder='Confirm Password')}}
+        </p>
+        <!-- Submit button -->
+        <p>
+            {{ form.submit }}
+        </p>
+    </div>
+</form>
+
+{% endblock %}

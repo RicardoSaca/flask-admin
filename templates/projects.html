@@ -1,0 +1,24 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    {% if projects %}
+    <ul>
+        {% for project in projects %}
+        <li> {{ project.pro_name }}:
+            <ul>
+                <li>Author: {{project.pro_author }}</li>
+                <li>Date: {{project.pro_date.strftime('%Y-%m') }}</li>
+                <li>Desc: {{project.pro_desc }}</li>
+                {% if project.pro_link %}
+                <li>Link: {{project.pro_link }}</li>
+                {% endif %}
+                {% if project.pro_embed %}
+                <li>Embed: {{project.pro_embed }}</li>
+                {% endif %}
+            </ul>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+{% endblock %}
