@@ -1,5 +1,6 @@
 from flask import Blueprint, flash, redirect, render_template, url_for
 from flask_login import current_user, login_user, logout_user
+from flask_login.utils import login_required
 # Import db
 from portfolio import db
 
@@ -45,6 +46,7 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 @auth.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('main.index'))

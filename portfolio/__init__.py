@@ -40,7 +40,7 @@ def create_app():
             return current_user.is_authenticated
 
         def inaccessible_callback(self, name, **kwargs):
-            return redirect(url_for('main.index'))
+            return f"not allowed {current_user}"
 
     #Initialize FLASK-Admin and Database
     admin.init_app(app, index_view=MyAdminIndexView())
