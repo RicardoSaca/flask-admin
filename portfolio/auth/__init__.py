@@ -16,7 +16,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         if form.username != 'ricardosaca':
-            flash('You are not allowed to create a user')
+            flash('You are not allowed to login')
             return redirect(url_for('main.index'))
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
@@ -31,6 +31,9 @@ def register():
         return redirect(url_for('main.index'))
     form = RegistrationForm()
     if form.validate_on_submit():
+        if form.username != 'ricardosaca':
+            flash('You are not allowed to login')
+            return redirect(url_for('main.index'))
         user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
