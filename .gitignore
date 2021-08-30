@@ -1,3 +1,5 @@
 __pycache__/
 admin/
 .DS_Store
+portfolio/__pycache__/*
+.env
