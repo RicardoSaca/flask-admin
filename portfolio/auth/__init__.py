@@ -15,9 +15,9 @@ def login():
         return redirect(url_for('main.index'))
     form = LoginForm()
     if form.validate_on_submit():
-        if form.username.data != 'ricardosaca':
+        if form.username != 'ricardosaca':
             flash('You are not allowed to login')
-            return f"Not allowed to login: {form.username.data}"
+            return redirect(url_for('main.index'))
         user = User.query.filter_by(username=form.username.data).first()
         if user is None or not user.check_password(form.password.data):
             flash('Invalid username or password')
