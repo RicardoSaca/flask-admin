@@ -26,6 +26,7 @@ class Book(db.Model):
     name = db.Column(db.String(50))
     author = db.Column(db.String(30))
     date_finished = db.Column(db.Date)
+    blog_url = db.Column(db.String(200))
 
 class Project(db.Model):
     __tablename__ = 'projects'
