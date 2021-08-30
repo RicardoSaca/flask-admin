@@ -1,5 +1,5 @@
 __pycache__/
-admin/
+vadmin/
 .DS_Store
 portfolio/__pycache__/*
 .env
